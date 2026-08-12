@@ -1,166 +1,254 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sivasangari | Portfolio</title>
+/* Google Font */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+body{
+    background:linear-gradient(-45deg,#0f172a,#1e3a8a,#312e81,#0f766e);
+    background-size:400% 400%;
+    animation:bg 10s ease infinite;
+    color:#fff;
+}
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-    <link rel="stylesheet" href="style.css">
-</head>
+/* Navbar */
 
-<body>
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.08);
+    z-index:1000;
+}
 
-<nav>
-    <h2>Portfolio</h2>
+nav h2{
+    color:#fff;
+}
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+nav ul{
+    display:flex;
+    list-style:none;
+}
 
-<!-- Hero -->
+nav ul li{
+    margin-left:25px;
+}
 
-<section id="home" class="hero">
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
 
-<div class="hero-text">
+nav ul li a:hover{
+    color:#38bdf8;
+}
 
-<h1>Hi,I'm <span>SIVASANGARI S </span>
-</h1>
+/* Hero */
 
-<h2><span id="typing"></span></h2>
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:100px 10%;
+    flex-wrap:wrap;
+}
 
-<p>
-Passionate Front-End Developer creating
-beautiful user experiences.
-</p>
+.hero-text{
+    max-width:500px;
+}
 
-<a href="#" class="btn">Download CV</a>
+.hero h1{
+    font-size:3rem;
+}
 
-</div>
+.hero h1 span{
+    color:#38bdf8;
+}
 
-<div class="hero-image">
+.hero h2{
+    margin:15px 0;
+    color:#facc15;
+}
 
-<img src="WhatsApp Image 2026-08-04 at 6.54.56 PM.jpeg" alt="Profile">
+.hero p{
+    margin-bottom:25px;
+    line-height:1.8;
+}
 
-</div>
+.btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#38bdf8;
+    color:#000;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
 
-</section>
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #38bdf8;
+}
 
-<!-- About -->
+/* Hero Image */
 
-<section id="about">
+.hero-image img{
+    width:320px;
+    border-radius:50%;
+    animation:float 3s ease-in-out infinite;
+    box-shadow:0 0 30px rgba(255,255,255,.4);
+}
 
-<h2 class="title">About Me</h2>
+@keyframes float{
 
-<div class="about-box">
+0%,100%{
+transform:translateY(0);
+}
 
-<p>
+50%{
+transform:translateY(-15px);
+}
 
-I'm an Electronics and Communication Engineering student
-interested in Front-End Development.
-I enjoy building modern, responsive and user-friendly websites.
+}
 
-</p>
+/* Sections */
 
-</div>
+section{
+    padding:90px 10%;
+}
 
-</section>
+.title{
+    text-align:center;
+    font-size:2.2rem;
+    margin-bottom:40px;
+}
 
-<!-- Skills -->
+/* About */
 
-<section id="skills">
+.about-box{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:30px;
+}
 
-<h2 class="title">Skills</h2>
+/* Skills */
 
-<div class="skills">
+.skill{
+    margin:25px 0;
+}
 
-<div class="skill">
-HTML
-<div class="bar"><span style="width:95%"></span></div>
-</div>
+.bar{
+    width:100%;
+    height:12px;
+    background:#555;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:8px;
+}
 
-<div class="skill">
-CSS
-<div class="bar"><span style="width:90%"></span></div>
-</div>
+.bar span{
+    display:block;
+    height:100%;
+    background:#38bdf8;
+    border-radius:30px;
+    animation:load 2s;
+}
 
-<div class="skill">
-JavaScript
-<div class="bar"><span style="width:70%"></span></div>
-</div>
+@keyframes load{
+    from{width:0;}
+}
 
-<div class="skill">
-Figma
-<div class="bar"><span style="width:92%"></span></div>
-</div>
+/* Projects */
 
-</div>
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
 
-</section>
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    padding:25px;
+    border-radius:20px;
+    transition:.4s;
+}
 
-<!-- Projects -->
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 25px rgba(56,189,248,.5);
+}
 
-<section id="projects">
+/* Contact */
 
-<h2 class="title">Projects</h2>
+.icons{
+    text-align:center;
+}
 
-<div class="project-container">
+.icons a{
+    color:white;
+    font-size:35px;
+    margin:15px;
+    transition:.3s;
+}
 
-<div class="card">
-<h3>Smart Transformer Health Monitoring</h3>
-<p>Cloud based monitoring system.</p>
-</div>
+.icons a:hover{
+    color:#38bdf8;
+    transform:scale(1.2);
+}
 
-<div class="card">
-<h3>Digital Twin</h3>
-<p>Cloud Computing Project.</p>
-</div>
+/* Footer */
 
-<div class="card">
-<h3>Women's Safety Wearable</h3>
-<p>Smart cloud enabled safety solution.</p>
-</div>
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(255,255,255,.08);
+}
 
-</div>
+/* Responsive */
 
-</section>
+@media(max-width:768px){
 
-<!-- Contact -->
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
 
-<section id="contact">
+.hero-image img{
+    width:240px;
+    margin-top:40px;
+}
 
-<h2 class="title">Contact</h2>
+nav{
+    flex-direction:column;
+}
 
-<div class="icons">
+nav ul{
+    margin-top:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-<a href="#"><i class="fa-solid fa-envelope"></i></a>
+nav ul li{
+    margin:10px;
+}
 
-<a href="#"><i class="fab fa-linkedin"></i></a>
-
-<a href="#"><i class="fab fa-github"></i></a>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 SIVASANGARI S
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
